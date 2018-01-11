@@ -7,6 +7,11 @@ class RESP
       if value.include?('\n')
         return '-ERR illegal character \n'
       end
+
+      if value.include?('\r')
+        return '-ERR illegal character \r'
+      end
+
       "+#{value}\\r\\n"
     end
 

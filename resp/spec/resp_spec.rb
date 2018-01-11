@@ -20,6 +20,10 @@ describe "RESP" do
           expect(RESP.encode('Zasdasasf\n')).to eql('-ERR illegal character \n')
         end
 
+        it 'should not allow "\r"' do
+          expect(RESP.encode('Zasdasasf\r')).to eql('-ERR illegal character \r')
+        end
+
       end
 
     end
