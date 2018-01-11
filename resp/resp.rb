@@ -1,8 +1,8 @@
 class RESP
 
   def self.encode(value)
-
-    if value.class == String
+    case "#{value.class}"
+    when "String"
 
       if value.include?('\n')
         return '-ERR illegal line feed character\r\n'
@@ -12,7 +12,9 @@ class RESP
         return '-ERR illegal carriage return character\r\n'
       end
 
-      "+#{value}\\r\\n"
+      return "+#{value}\\r\\n"
+    when "Fixnum"
+      return ":#{value}\\r\\n"
     end
 
   end

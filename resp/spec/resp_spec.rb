@@ -28,6 +28,14 @@ describe "RESP" do
 
     end
 
+    context "Integers" do
+
+      it 'should turn 0 into ":0\r\n"' do
+        expect(RESP.encode(0)).to eql(':0\r\n')
+      end
+
+    end
+
   end
 
 
