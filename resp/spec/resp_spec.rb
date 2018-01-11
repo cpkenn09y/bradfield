@@ -34,6 +34,10 @@ describe "RESP" do
         expect(RESP.encode(0)).to eql(':0\r\n')
       end
 
+      it 'should turn 1000 into ":1000\r\n"' do
+        expect(RESP.encode(1000)).to eql(':1000\r\n')
+      end
+
     end
 
   end
