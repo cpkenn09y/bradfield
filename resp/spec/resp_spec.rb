@@ -17,11 +17,11 @@ describe "RESP" do
       context "errors" do
 
         it 'should not allow "\n"' do
-          expect(RESP.encode('Zasdasasf\n')).to eql('-ERR illegal character \n')
+          expect(RESP.encode('Zasdasasf\n')).to eql('-ERR illegal line feed character\r\n')
         end
 
         it 'should not allow "\r"' do
-          expect(RESP.encode('Zasdasasf\r')).to eql('-ERR illegal character \r')
+          expect(RESP.encode('Zasdasasf\r')).to eql('-ERR illegal carriage return character\r\n')
         end
 
       end

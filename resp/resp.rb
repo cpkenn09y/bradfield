@@ -5,11 +5,11 @@ class RESP
     if value.class == String
 
       if value.include?('\n')
-        return '-ERR illegal character \n'
+        return '-ERR illegal line feed character\r\n'
       end
 
       if value.include?('\r')
-        return '-ERR illegal character \r'
+        return '-ERR illegal carriage return character\r\n'
       end
 
       "+#{value}\\r\\n"
